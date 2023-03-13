@@ -1,5 +1,3 @@
-/* COMPUTADORA */
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -8,11 +6,26 @@
   scroll-behavior: smooth;
 }
 
-/* Sirve para cuando se dezliza el scroll-bar deje un margin en la parte superior que se quiere mostrar */
 #about,
 #skills {
   scroll-margin-top: 75px;
 }
+
+/* General */
+h2,
+h4 {
+  margin: 20px 0px;
+}
+
+.no-home {
+  padding: 100px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+/* HEADER */
 
 .header {
   background-color: #625e5ef2;
@@ -25,9 +38,9 @@
 
 .header .list-container {
   height: 100%;
-  align-items: center;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .header .list-container .icon-container {
@@ -58,38 +71,31 @@
   transition: 0.2s;
 }
 
-.header a:hover {
+.header .list-container .list-nav a {
   color: #bbbbbb;
+}
+
+.header .list-container .list-nav a:hover {
+  color: #fff;
+}
+
+.header .list-container .icon-container a:hover {
+  color: #bbb;
 }
 
 .header .burger-icon {
   display: none;
 }
 
-/* HACER QUE SE MANTENGA EL COLOR #BBB EN EL NAV-BAR CUANDO UNO DE SUS ITEMS ESTA ACTIVO CON JS */
-
-.active {
-  color: #bbb;
+/* ACTIVE - NAVBAR */
+.header li.active {
+  transform: scale(1.1);
+}
+.header .list-container .list-nav li.active a {
+  color: #fff;
 }
 
-/* -------------------------------------------- MAIN ------------------------------------------ */
-
-/* General */
-
-h2,
-h4 {
-  margin: 20px 0px;
-}
-
-.no-home {
-  padding: 100px;
-  font-size: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 100px;
-}
-
-/* General */
+/* MAIN */
 
 /* Home */
 
@@ -129,11 +135,7 @@ h4 {
   color: #222;
 }
 
-/* Home */
-
-/* ------------------------------------------------------------------------ */
-
-/* ABOUT */
+/* About */
 
 .about .presentation p {
   line-height: 2;
@@ -167,9 +169,7 @@ h4 {
   text-align: center;
 }
 
-/* ABOUT */
-
-/* PORTFOLIO */
+/* Portfolio */
 
 .skills .projects {
   display: grid;
@@ -196,11 +196,7 @@ h4 {
   width: 100%;
 }
 
-/* PORTFOLIO */
-
-/* ------------------------------------------------------------------------ */
-
-/* CONTACT */
+/* Contact */
 
 .contact .contact-methods {
   display: grid;
@@ -231,9 +227,7 @@ h4 {
   transform: scale(1.1);
 }
 
-/* Contact Section */
-
-/* ---------------------------------------- FOOTER -------------------------------------------------- */
+/* FOOTER */
 
 .footer {
   background-color: #625e5ee6;
@@ -254,17 +248,15 @@ h4 {
   color: #fff;
 }
 
-/* COMPUTADORA */
-
-/* AJUSTAR ABOUT-SECTION Y SKILL-SECTION A PANTALLAS MAS PEQUEÑAS */
-
-/* SEGUIR TRABAJANDO EN LOS EFECTOS POR DEBAJO DE 1024PX */
 @media screen and (max-width: 1024px) {
   h2,
   h4,
   p {
     text-align: center;
   }
+
+  /* HEADER */
+
   .header .burger-icon {
     width: 50px;
     height: 100%;
@@ -276,6 +268,18 @@ h4 {
   .header .burger-icon i {
     color: #fff;
     cursor: pointer;
+    transition: 0.2s;
+  }
+  .header .burger-icon i:active {
+    color: #bbb;
+  }
+
+  .header .list-container .icon-container a:hover {
+    color: #fff;
+  }
+
+  .header .list-container .icon-container a:active {
+    color: #bbb;
   }
 
   .header .list-container .list-nav {
@@ -307,29 +311,35 @@ h4 {
 
   .header .list-container .list-nav li:hover {
     transform: none;
+  }
+
+  .header .list-container .list-nav li:active {
     background-color: #847f7ff8;
   }
-  /* CODIGO PARA EL ABOUT */
+
+  /* MAIN */
+
+  /* About */
   .about .tecnologies .skills-container figure {
     text-align: center;
     flex-basis: 25%;
   }
 
-  /* CODIGO PARA EL PORTFOLIO */
+  /* Portfolio */
+
   .skills .projects {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 275px 275px;
   }
+
   .skills .projects a:last-child {
     grid-column: 2 / span 1;
   }
 }
 
-/* @media screen and (min-width: 900px) and (max-width: 1024px) {
-} */
-
 @media screen and (max-width: 900px) {
   /* HEADER */
+
   .header .list-container .list-nav {
     right: -100%;
     width: 100%;
@@ -340,7 +350,10 @@ h4 {
     transform: translateX(-100%);
   }
 
-  /* HOME */
+  /* MAIN */
+
+  /* Home */
+
   .home .img-name .background {
     flex-direction: column;
   }
@@ -348,12 +361,16 @@ h4 {
   .home .img-name .background span {
     text-align: center;
   }
-  /* ABOUT */
+
+  /* About */
+
   .about .tecnologies .skills-container figure {
     text-align: center;
     flex-basis: 33.33%;
   }
-  /* CODIGO PARA EL PORTFOLIO */
+
+  /* Portfolio */
+
   .skills .projects {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 275px 275px;
@@ -362,7 +379,7 @@ h4 {
     grid-column: span 1;
   }
 
-  /* CODIGO PARA CONTACTO */
+  /* Contact */
 
   .contact .contact-methods {
     grid-template-columns: 1fr 1fr;
@@ -371,31 +388,28 @@ h4 {
     row-gap: 50px;
   }
 }
-/* @media screen and (max-width: 899px) and (min-width: 650px) {
-} */
 
 @media screen and (max-width: 650px) {
-  /* GENERAL */
+  /* General */
+
   .home,
   .no-home {
     font-size: 19px;
-  }
-  /* HEADER */
-  .header .list-container .list-nav {
-    right: -100%;
-    width: 100%;
-    height: 100vh;
-    transform: translateX(0);
-  }
-
-  .header .list-container ul.menu-show {
-    transform: translateX(-100%);
   }
 
   .no-home {
     padding: 100px 10px;
   }
-  /* CODIGO PARA EL HOME */
+
+  /* HEADER */
+
+  .header .list-container .list-nav {
+    height: 100vh;
+  }
+
+  /* MAIN */
+
+  /* Home */
 
   .home .img-name .background {
     flex-direction: column;
@@ -405,20 +419,22 @@ h4 {
     text-align: center;
   }
 
-  /* CODIGO PARA EL ABOUT */
+  /* About */
+
   .about .tecnologies .skills-container figure {
     text-align: center;
     flex-basis: 33%;
   }
 
-  /* CODIGO PARA EL PORTFOLIO */
+  /* Portfolio */
+
   .skills .projects {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 220px 220px;
-    padding: 0 30px;
+    padding: 0;
   }
 
-  /* CODIGO PARA CONTACTO */
+  /* Contact */
 
   .contact .contact-methods {
     grid-template-columns: 1fr 1fr;
@@ -435,26 +451,45 @@ h4 {
     padding: 60px 10px;
     gap: 50px;
   }
-  /* CODIGO PARA EL ABOUT */
+
+  /* MAIN */
+
+  /* Home */
+
+  .home .img-name .background .name {
+    text-align: center;
+  }
+
+  /* About */
 
   .about .presentation p {
     font-size: 0.9em;
   }
+
   .about .tecnologies img {
     height: 100px;
   }
-  /* PORTFOLIO */
+
+  /* Portfolio */
+
   .skills .projects {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 200px);
     justify-content: center;
   }
 
-  /* CODIGO PARA CONTACTO */
+  /* Contact */
 
   .contact .contact-methods {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 88px 88px;
     gap: 50px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  /* Contact */
+
+  .contact .contact-methods {
+    padding: 0;
+    gap: 30px 0;
   }
 }
